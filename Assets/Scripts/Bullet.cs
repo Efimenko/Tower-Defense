@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
 
+    public GameObject impactEffectPrefab;
+
     public float speed = 70f;
 
     public void SetTarget (Transform _target)
@@ -35,6 +37,10 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
+        var impactEffectGameObject = Instantiate(impactEffectPrefab, transform.position, transform.rotation);
+        Destroy(impactEffectGameObject, 2f);
+
+        Destroy(target.gameObject);
         Destroy(gameObject);
     }
 }
