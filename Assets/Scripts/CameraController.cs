@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey("a") || Input.mousePosition.y <= edgeBorderThinkness)
+        if (Input.GetKey("a") || Input.mousePosition.x <= edgeBorderThinkness)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }

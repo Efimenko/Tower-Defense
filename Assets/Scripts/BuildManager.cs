@@ -22,13 +22,13 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        turretToBuild = standartTurretPref;
-    }
-
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject selectedTurret)
+    {
+        turretToBuild = selectedTurret;
     }
 }
