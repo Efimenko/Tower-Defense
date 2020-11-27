@@ -1019,10 +1019,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standartTurret:
     prefab: {fileID: 1416974754764685144, guid: 64677c76038fb4bb1bec1a46b6d2d2ad, type: 3}
-    coast: 100
+    cost: 100
   missileLauncher:
     prefab: {fileID: 6887123866598402999, guid: 72d91bfa6ba144dae93563b3cb27c6e5, type: 3}
-    coast: 200
+    cost: 200
 --- !u!1001 &56723538
 PrefabInstance:
   m_ObjectHideFlags: 0

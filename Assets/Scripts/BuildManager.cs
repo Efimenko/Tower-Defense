@@ -35,7 +35,7 @@ public class BuildManager : MonoBehaviour
 
     public void BuildTurret(Node node)
     {
-        if (PlayerStats.money < turretToBuild.coast)
+        if (PlayerStats.money < turretToBuild.cost)
         {
             Debug.Log("Not enough money");
             return;
@@ -43,7 +43,7 @@ public class BuildManager : MonoBehaviour
 
         node.turret = Instantiate(turretToBuild.prefab, node.GetBuildPosition(), node.transform.rotation);
 
-        PlayerStats.money -= turretToBuild.coast;
+        PlayerStats.money -= turretToBuild.cost;
 
         Debug.Log("Remain money: " + PlayerStats.money);
     }
