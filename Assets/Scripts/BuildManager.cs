@@ -6,11 +6,15 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    public GameObject standartTurretPref;
+    private TurretBlueprint turretToBuild;
 
-    public GameObject missileLauncherPref;
-
-    private GameObject turretToBuild;
+    public bool canBuild
+    {
+        get
+        {
+            return turretToBuild != null;
+        }
+    }
 
     private void Awake()
     {
@@ -24,13 +28,13 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject GetTurretToBuild()
-    {
-        return turretToBuild;
-    }
-
-    public void SetTurretToBuild(GameObject selectedTurret)
+    public void SelectTurretToBuild(TurretBlueprint selectedTurret)
     {
         turretToBuild = selectedTurret;
+    }
+
+    public void BuildTurret(Node node)
+    {
+        node.turret = Instantiate(turretToBuild.prefab, node.GetBuildPosition(), node.transform.rotation);
     }
 }

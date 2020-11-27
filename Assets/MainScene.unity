@@ -1017,6 +1017,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0295e9ffb71f14d55a454f031d475b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standartTurret:
+    prefab: {fileID: 1416974754764685144, guid: 64677c76038fb4bb1bec1a46b6d2d2ad, type: 3}
+    coast: 100
+  missileLauncher:
+    prefab: {fileID: 6887123866598402999, guid: 72d91bfa6ba144dae93563b3cb27c6e5, type: 3}
+    coast: 200
 --- !u!1001 &56723538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2666,8 +2672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e482a479059482ca671560f73e1e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standartTurretPref: {fileID: 1416974754764685144, guid: 64677c76038fb4bb1bec1a46b6d2d2ad, type: 3}
-  missileLauncherPref: {fileID: 6887123866598402999, guid: 72d91bfa6ba144dae93563b3cb27c6e5, type: 3}
 --- !u!1 &340345845
 GameObject:
   m_ObjectHideFlags: 0
