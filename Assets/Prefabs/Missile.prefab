@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370f9a40625944445b257029e2783fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactEffectPrefab: {fileID: 5475259846072587909, guid: c9eaa9b099a424b64beb75a021f8b45d, type: 3}
+  impactEffectPrefab: {fileID: 8585244688463390082, guid: 6fea69dd94efa41c1a322b9ec2292446, type: 3}
   explosionRange: 7
   speed: 30
   enemyTag: Enemy
