@@ -15,4 +15,9 @@ public class Shop : MonoBehaviour
     {
         buildManager.SetTurretToBuild(buildManager.standartTurretPref);
     }
+
+    public void PurchaseMissileLauncher()
+    {
+        buildManager.SetTurretToBuild(buildManager.missileLauncherPref);
+    }
 }

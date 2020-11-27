@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f76519d0dfabf404c9419dc0ad0e2896
+guid: 83afcec4d4c1d4c89850f8ed38aba6a0
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -7,18 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Turret_GunMetal
-    second: {fileID: 2100000, guid: 9fa28b27654464080b5e05659933f0dd, type: 2}
+      name: Bolts
+    second: {fileID: 2100000, guid: 898a57dc9634147ae86326b15ec597a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Turret_Metal
-    second: {fileID: 2100000, guid: eda636c90fcac473e996063cd1937966, type: 2}
+      name: Main Turret
+    second: {fileID: 2100000, guid: 05cb25872c11c4d699bb773654d93a65, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Turret_Metal2
-    second: {fileID: 2100000, guid: 5d284fb1c9571491c9db9aa7b397f6cb, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: ad46c5f0481384316a96106a4aaeb487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stand
+    second: {fileID: 2100000, guid: 9dce6df3cf96b4aed9243c4b0d3a53a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret Accent
+    second: {fileID: 2100000, guid: 51b85d352570840c8a246e3c4b30cc54, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -49,12 +59,12 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 0.75
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
@@ -80,8 +90,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 40
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
@@ -100,14 +110,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 3
+    globalScale: 0.0075
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0

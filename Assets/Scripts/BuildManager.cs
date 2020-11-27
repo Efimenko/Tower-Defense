@@ -8,6 +8,8 @@ public class BuildManager : MonoBehaviour
 
     public GameObject standartTurretPref;
 
+    public GameObject missileLauncherPref;
+
     private GameObject turretToBuild;
 
     private void Awake()
