@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
+    public int damage = 50;
+
     public void SetTarget (Transform _target)
     {
         target = _target;
@@ -52,8 +54,6 @@ public class Bullet : MonoBehaviour
         {
             Damage(target);
         }
-
-        Destroy(gameObject);
     }
 
     private void Explode()
@@ -71,7 +71,8 @@ public class Bullet : MonoBehaviour
 
     private void Damage(Transform _target)
     {
-        Destroy(_target.gameObject);
+        Destroy(gameObject);
+        target.GetComponent<Enemy>().TakeDamage(damage);
     }
 
     private void OnDrawGizmosSelected()

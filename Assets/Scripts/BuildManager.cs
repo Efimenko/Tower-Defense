@@ -43,7 +43,7 @@ public class BuildManager : MonoBehaviour
 
         node.turret = Instantiate(turretToBuild.prefab, node.GetBuildPosition(), node.transform.rotation);
 
-        PlayerStats.instance.SubtractMoney(turretToBuild.cost);
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
 
         Debug.Log("Remain money: " + PlayerStats.instance.money);
     }

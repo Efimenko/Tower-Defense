@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int currentIndex = 0;
 
+    public int health = 100;
+
+    public int enemyValue = 50;
+
     public float speed = 10f;
 
     private void Start()
@@ -23,6 +27,23 @@ public class Enemy : MonoBehaviour
         {
             TrackNextWaypoint();
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log("Health: " + health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney + enemyValue);
+        Destroy(gameObject);
     }
 
     private void TrackNextWaypoint()

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,9 +31,9 @@ public class PlayerStats : MonoBehaviour
         UpdateLivesUI();
     }
 
-    public int SubtractMoney(int subtractionMoney)
+    public int SetMoney(Func<int, int>updater)
     {
-        money -= subtractionMoney;
+        money = updater(money);
         UpdateMoneyUI();
 
         return money;
