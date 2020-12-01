@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour
     public int SubtractLives(int subtractionLives)
     {
         lives -= subtractionLives;
-        livesText.text = "Lives: " + lives;
+        UpdateLivesUI();
 
         return lives;
     }
