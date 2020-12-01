@@ -28,19 +28,19 @@ public class PlayerStats : MonoBehaviour
         money = initialMoney;
         lives = initialLives;
 
-        UpdateMoneUI();
+        UpdateMoneyUI();
         UpdateLivesUI();
     }
 
     public int SubtractMoney(int subtractionMoney)
     {
         money -= subtractionMoney;
-        UpdateMoneUI();
+        UpdateMoneyUI();
 
         return money;
     }
 
-    void UpdateMoneUI()
+    void UpdateMoneyUI()
     {
         moneyText.text = "Money: $" + money;
     }
