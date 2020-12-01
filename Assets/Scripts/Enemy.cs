@@ -29,10 +29,16 @@ public class Enemy : MonoBehaviour
     {
         if (currentIndex == Waypoints.points.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return;
         }
         
         target = Waypoints.points[++currentIndex];
+    }
+
+    void EndPath()
+    {
+        PlayerStats.instance.SubtractLives(1);
+        Destroy(gameObject);
     }
 }

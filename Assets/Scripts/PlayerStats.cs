@@ -5,17 +5,56 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int money;
+    public static PlayerStats instance;
+    public int money;
     public int initialMoney = 400;
+
+    public int lives;
+    public int initialLives = 10;
+
+    public Text livesText;
     public Text moneyText;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
         money = initialMoney;
+        lives = initialLives;
+
+        UpdateMoneUI();
+        UpdateLivesUI();
     }
 
-    private void Update()
+    public int SubtractMoney(int subtractionMoney)
     {
-        moneyText.text = money.ToString();
+        money -= subtractionMoney;
+        UpdateMoneUI();
+
+        return money;
+    }
+
+    void UpdateMoneUI()
+    {
+        moneyText.text = "Money: $" + money;
+    }
+
+    public int SubtractLives(int subtractionLives)
+    {
+        lives -= subtractionLives;
+        livesText.text = "Lives: " + lives;
+
+        return lives;
+    }
+
+    void UpdateLivesUI()
+    {
+        livesText.text = "Lives:" + lives;
     }
 }
