@@ -18,9 +18,12 @@ public class Turret : MonoBehaviour
     [Header("Laser setup")]
     public LineRenderer lineRenderer;
     public bool useLaser;
+    public float damagePerSecond = 30f;
 
     [Header("Common Attributes")]
     public float range = 10f;
+
+    public Enemy targetEnemy;
 
 
     private void Start()
@@ -47,9 +50,11 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = target.GetComponent<Enemy>();
         } else
         {
             target = null;
+            targetEnemy = null;
         }
     }
 
@@ -104,6 +109,7 @@ public class Turret : MonoBehaviour
                 lineRenderer.SetPosition(0, projectileSpawnPoint.position);
                 lineRenderer.SetPosition(1, target.position);
                 lineRenderer.enabled = true;
+                targetEnemy.TakeDamage(damagePerSecond * Time.deltaTime);
                 break;
             default:
                 break;

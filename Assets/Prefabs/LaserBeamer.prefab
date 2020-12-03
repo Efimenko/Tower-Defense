@@ -52,7 +52,7 @@ MonoBehaviour:
   fireRate: 1
   lineRenderer: {fileID: 5045388591534320761}
   useLaser: 1
-  range: 5
+  range: 20
 --- !u!1 &4487124848816547160
 GameObject:
   m_ObjectHideFlags: 0

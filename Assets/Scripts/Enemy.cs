@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int currentIndex = 0;
 
-    public int health = 100;
+    public float health = 100;
 
-    public int enemyValue = 50;
+    public int worth = 50;
 
     public float speed = 10f;
 
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         Debug.Log("Health: " + health);
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        PlayerStats.instance.SetMoney((currentMoney) => currentMoney + enemyValue);
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney + worth);
         Destroy(gameObject);
     }
 
