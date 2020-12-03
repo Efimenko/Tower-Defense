@@ -162,10 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   partToRotate: {fileID: 3296261731734746533}
+  projectileSpawnPoint: {fileID: 4808440136023102540}
   bulletPrefab: {fileID: 2062438561386879604, guid: b749ab4670ca54d8fae6f21765adc9ce, type: 3}
-  bulletSpawnPoint: {fileID: 4808440136023102540}
   range: 10
-  turnSpeed: 10
   fireRate: 1
 --- !u!1 &4366168593369928179
 GameObject:

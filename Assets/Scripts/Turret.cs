@@ -7,15 +7,21 @@ public class Turret : MonoBehaviour
     [Header("Unity setup")]
     public Transform target;
     public Transform partToRotate;
+    public Transform projectileSpawnPoint;
+    private float turnSpeed = 10f;
+    
+    [Header("Bullet setup")]
     public GameObject bulletPrefab;
-    public Transform bulletSpawnPoint;
-
-    [Header("Attributes")]
-    public float range = 10f;
-    public float turnSpeed = 10f;
     public float fireRate = 1f;
-
     private float fireCountdown = 0f;
+
+    [Header("Laser setup")]
+    public LineRenderer lineRenderer;
+    public bool useLaser;
+
+    [Header("Common Attributes")]
+    public float range = 10f;
+
 
     private void Start()
     {
@@ -49,22 +55,32 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        if (fireCountdown > 0f) {
-            fireCountdown -= Time.deltaTime;
-        }
-
         if (!target)
         {
+            StopLaser();
             return;
         }
 
         RotateTurretToEnemy();
 
+        if (useLaser)
+        {
+            Shoot("laser");
+            return;
+        }
+
+        UpdateCountdownAndShoot();
+    }
+
+    private void UpdateCountdownAndShoot()
+    {
         if (fireCountdown <= 0f)
         {
-            Shoot();
+            Shoot("bullet");
             fireCountdown = 1f / fireRate;
         }
+
+        fireCountdown -= Time.deltaTime;
     }
 
     private void RotateTurretToEnemy()
@@ -75,11 +91,33 @@ public class Turret : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
-    private void Shoot()
+    private void Shoot(string type)
     {
-        var bulletGameObject = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        var bulletScript = bulletGameObject.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        switch (type)
+        {
+            case "bullet":
+                var bulletGameObject = Instantiate(bulletPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+                var bulletScript = bulletGameObject.GetComponent<Bullet>();
+                bulletScript.SetTarget(target);
+                break;
+            case "laser":
+                lineRenderer.SetPosition(0, projectileSpawnPoint.position);
+                lineRenderer.SetPosition(1, target.position);
+                lineRenderer.enabled = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void StopLaser()
+    {
+        if (!useLaser)
+        {
+            return;
+        }
+
+        lineRenderer.enabled = false;
     }
 
     private void OnDrawGizmosSelected()
