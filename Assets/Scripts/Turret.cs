@@ -19,6 +19,7 @@ public class Turret : MonoBehaviour
     public LineRenderer lineRenderer;
     public bool useLaser;
     public float damagePerSecond = 30f;
+    public float slownessPercent = 50f;
 
     [Header("Common Attributes")]
     public float range = 10f;
@@ -106,10 +107,13 @@ public class Turret : MonoBehaviour
                 bulletScript.SetTarget(target);
                 break;
             case "laser":
+                targetEnemy.TakeDamage(damagePerSecond * Time.deltaTime);
+                targetEnemy.SlowDown(slownessPercent);
+
                 lineRenderer.SetPosition(0, projectileSpawnPoint.position);
                 lineRenderer.SetPosition(1, target.position);
+
                 lineRenderer.enabled = true;
-                targetEnemy.TakeDamage(damagePerSecond * Time.deltaTime);
                 break;
             default:
                 break;
