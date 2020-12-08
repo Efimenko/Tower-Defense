@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public int lives;
     public int initialLives = 10;
 
+    public int wave;
+
     public Text livesText;
     public Text moneyText;
 
@@ -26,6 +28,7 @@ public class PlayerStats : MonoBehaviour
     {
         money = initialMoney;
         lives = initialLives;
+        wave = 0;
 
         UpdateMoneyUI();
         UpdateLivesUI();

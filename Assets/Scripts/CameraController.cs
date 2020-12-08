@@ -13,6 +13,11 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.gameIsOver)
+        {
+            this.enabled = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             movable = !movable;
