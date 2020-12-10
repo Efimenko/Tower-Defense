@@ -6,18 +6,12 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    private TurretBlueprint turretToBuild;
+    private TurretBlueprint _turretToBuild;
 
     public GameObject popup;
 
-    public bool canBuild
-    {
-        get
-        {
-            return turretToBuild != null;
-        }
-    }
-
+    public TurretBlueprint turretToBuild => _turretToBuild;
+    
     private void Awake()
     {
         if (instance)
@@ -32,27 +26,12 @@ public class BuildManager : MonoBehaviour
 
     public void SelectTurretToBuild(TurretBlueprint selectedTurret)
     {
-        turretToBuild = selectedTurret;
-    }
-
-    public void BuildTurret(Node node)
-    {
-        if (PlayerStats.instance.money < turretToBuild.cost)
-        {
-            Debug.Log("Not enough money");
-            return;
-        }
-
-        node.turret = Instantiate(turretToBuild.prefab, node.GetBuildPosition(), node.transform.rotation);
-
-        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
-
-        Debug.Log("Remain money: " + PlayerStats.instance.money);
+        _turretToBuild = selectedTurret;
     }
 
     public void TogglePopup(Node node)
     {
-        turretToBuild = null;
+        _turretToBuild = null;
 
         if (popup.transform.position == node.GetBuildPosition())
         {

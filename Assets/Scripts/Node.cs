@@ -7,19 +7,13 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor;
     public Vector3 positionOffset;
+    public GameObject turret;
 
     private Renderer rendererComponent;
     private Color initialColor;
-    public GameObject turret;
     private BuildManager buildManager;
 
-    private bool canBuild
-    {
-        get
-        {
-            return buildManager.canBuild && !EventSystem.current.IsPointerOverGameObject() && !turret;
-        }
-    }
+    private bool canBuild => buildManager.turretToBuild != null && !turret;
 
     private void Start()
     {
@@ -45,6 +39,11 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         if (turret)
         {
             buildManager.TogglePopup(this);
@@ -55,11 +54,26 @@ public class Node : MonoBehaviour
             return;
         }
 
-        buildManager.BuildTurret(this);
+       BuildTurret();
     }
 
     public Vector3 GetBuildPosition()
     {
         return transform.position + positionOffset;
+    }
+
+    public void BuildTurret()
+    {
+        var turretToBuild = BuildManager.instance.turretToBuild;
+
+        if (PlayerStats.instance.money < turretToBuild.cost)
+        {
+            Debug.Log("Not enough money");
+            return;
+        }
+
+        turret = Instantiate(turretToBuild.prefab, GetBuildPosition(), transform.rotation);
+
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
     }
 }
