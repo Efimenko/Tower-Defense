@@ -8,6 +8,8 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint turretToBuild;
 
+    public GameObject popup;
+
     public bool canBuild
     {
         get
@@ -46,5 +48,25 @@ public class BuildManager : MonoBehaviour
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
 
         Debug.Log("Remain money: " + PlayerStats.instance.money);
+    }
+
+    public void TogglePopup(Node node)
+    {
+        turretToBuild = null;
+
+        if (popup.transform.position == node.GetBuildPosition())
+        {
+            popup.SetActive(!popup.activeSelf);
+            return;
+        }
+
+        popup.transform.position = node.GetBuildPosition();
+        popup.SetActive(true);
+        
+    }
+
+    public void HidePopup()
+    {
+        popup.SetActive(false);
     }
 }

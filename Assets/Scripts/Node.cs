@@ -45,6 +45,11 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (turret)
+        {
+            buildManager.TogglePopup(this);
+        }
+
         if (!canBuild)
         {
             return;
