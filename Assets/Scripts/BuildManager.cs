@@ -35,7 +35,7 @@ public class BuildManager : MonoBehaviour
 
     public void SelectTurretToUpgrade()
     {
-        _turretToUpgrade = _turretToBuild;
+        _turretToUpgrade = _turretToBuild ?? _turretToUpgrade;
         _turretToBuild = null;
     }
 }
