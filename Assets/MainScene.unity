@@ -2459,7 +2459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &214790012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3125,7 +3125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e482a479059482ca671560f73e1e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 2055710886}
 --- !u!114 &335575694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10159,9 +10158,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335575693}
-        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
-        m_MethodName: UpgradeTurret
+      - m_Target: {fileID: 2055710888}
+        m_TargetAssemblyTypeName: TurretPopup, Assembly-CSharp
+        m_MethodName: OnUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17554,7 +17553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2055710887
 Transform:
   m_ObjectHideFlags: 0
@@ -17582,7 +17581,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d48d20dfe70a48efa1d722746e99e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeButton: {fileID: 1230279457}
   upgradeCost: {fileID: 294586202}
+  canvas: {fileID: 214790011}
 --- !u!1001 &2060712214
 PrefabInstance:
   m_ObjectHideFlags: 0

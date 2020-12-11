@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Vector3 positionOffset;
     public GameObject turret;
+    public bool isUpgraded = false;
 
     private Renderer rendererComponent;
     private Color initialColor;
@@ -46,7 +47,8 @@ public class Node : MonoBehaviour
 
         if (turret)
         {
-            buildManager.TogglePopup(this);
+            buildManager.SelectTurretToUpgrade();
+            TurretPopup.instance.Toggle(this);
         }
 
         if (!canBuild)
@@ -86,6 +88,8 @@ public class Node : MonoBehaviour
             Debug.Log("Not enough money");
             return;
         }
+
+        isUpgraded = true;
 
         Destroy(turret);
 
