@@ -8,10 +8,16 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint _turretToBuild;
 
+    private TurretBlueprint _turretToUpgrade;
+
     public GameObject popup;
 
+    private Node popupOpenedOn;
+
     public TurretBlueprint turretToBuild => _turretToBuild;
-    
+
+    public TurretBlueprint turretToUpgrade => _turretToUpgrade;
+
     private void Awake()
     {
         if (instance)
@@ -31,7 +37,9 @@ public class BuildManager : MonoBehaviour
 
     public void TogglePopup(Node node)
     {
+        _turretToUpgrade = _turretToBuild;
         _turretToBuild = null;
+        popupOpenedOn = node;
 
         if (popup.transform.position == node.GetBuildPosition())
         {
@@ -46,6 +54,12 @@ public class BuildManager : MonoBehaviour
 
     public void HidePopup()
     {
+        popupOpenedOn = null;
         popup.SetActive(false);
+    }
+
+    public void UpgradeTurret()
+    {
+        popupOpenedOn.UpgradeTurret();
     }
 }

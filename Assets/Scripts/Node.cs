@@ -76,4 +76,21 @@ public class Node : MonoBehaviour
 
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
     }
+
+    public void UpgradeTurret()
+    {
+        var turretToUpgrade = BuildManager.instance.turretToUpgrade;
+
+        if (PlayerStats.instance.money < turretToUpgrade.upgradeCost)
+        {
+            Debug.Log("Not enough money");
+            return;
+        }
+
+        Destroy(turret);
+
+        turret = Instantiate(turretToUpgrade.upgradePrefab, GetBuildPosition(), transform.rotation);
+
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToUpgrade.upgradeCost);
+    }
 }

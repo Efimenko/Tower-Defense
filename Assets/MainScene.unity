@@ -1100,12 +1100,18 @@ MonoBehaviour:
   standartTurret:
     prefab: {fileID: 1416974754764685144, guid: 64677c76038fb4bb1bec1a46b6d2d2ad, type: 3}
     cost: 100
+    upgradePrefab: {fileID: 1416974754764685144, guid: 0701958974b3f404d98f64a92de181d7, type: 3}
+    upgradeCost: 60
   missileLauncher:
     prefab: {fileID: 6887123866598402999, guid: 72d91bfa6ba144dae93563b3cb27c6e5, type: 3}
     cost: 200
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
   laserBeamer:
     prefab: {fileID: 569744685718870144, guid: 1cf8aaf9a0eef4351aa5573ed9fe59f1, type: 3}
     cost: 300
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
 --- !u!1001 &56723538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9997,7 +10003,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1230279458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 335575693}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: UpgradeTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1230279458
 MonoBehaviour:
   m_ObjectHideFlags: 0
