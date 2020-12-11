@@ -74,7 +74,10 @@ public class Node : MonoBehaviour
             return;
         }
 
-        turret = Instantiate(turretToBuild.prefab, GetBuildPosition(), transform.rotation);
+        turret = Instantiate(turretToBuild.prefab, GetBuildPosition(), Quaternion.identity);
+        var buildEffect = Instantiate(buildManager.buildEffectPrefab, GetBuildPosition(), Quaternion.identity);
+
+        Destroy(buildEffect, 5f);
 
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToBuild.cost);
     }
@@ -94,6 +97,10 @@ public class Node : MonoBehaviour
         Destroy(turret);
 
         turret = Instantiate(turretToUpgrade.upgradePrefab, GetBuildPosition(), transform.rotation);
+
+        var upgradeEffect = Instantiate(buildManager.buildEffectPrefab, GetBuildPosition(), Quaternion.identity);
+
+        Destroy(upgradeEffect, 5f);
 
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToUpgrade.upgradeCost);
     }
