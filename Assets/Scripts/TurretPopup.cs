@@ -28,6 +28,11 @@ public class TurretPopup : MonoBehaviour
         openedOn = node;
         upgradeCost.text = BuildManager.instance.turretToUpgrade.upgradeCost + "$";
 
+        if (!openedOn.isUpgraded && !upgradeButton.interactable)
+        {
+            upgradeButton.interactable = true;
+        }
+
         if (transform.position == node.GetBuildPosition())
         {
             canvas.SetActive(!canvas.activeSelf);
