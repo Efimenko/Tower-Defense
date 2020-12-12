@@ -3139,7 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  initialMoney: 400
+  initialMoney: 20000
   lives: 0
   initialLives: 10
   wave: 0
@@ -8574,7 +8574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade
+  m_Text: Sell
 --- !u!222 &982052122
 CanvasRenderer:
   m_ObjectHideFlags: 0
