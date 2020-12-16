@@ -26,7 +26,7 @@ public class TurretPopup : MonoBehaviour
     public void Toggle(Node node)
     {
         openedOn = node;
-        upgradeCost.text = BuildManager.instance.turretToUpgrade.upgradeCost + "$";
+        upgradeCost.text = openedOn.turretBlueprint.upgradeCost + "$";
 
         if (!openedOn.isUpgraded && !upgradeButton.interactable)
         {

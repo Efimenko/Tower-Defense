@@ -10,11 +10,7 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint _turretToBuild;
 
-    private TurretBlueprint _turretToUpgrade;
-
     public TurretBlueprint turretToBuild => _turretToBuild;
-
-    public TurretBlueprint turretToUpgrade => _turretToUpgrade;
 
     private void Awake()
     {
@@ -31,11 +27,5 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild(TurretBlueprint selectedTurret)
     {
         _turretToBuild = selectedTurret;
-    }
-
-    public void SelectTurretToUpgrade()
-    {
-        _turretToUpgrade = _turretToBuild ?? _turretToUpgrade;
-        _turretToBuild = null;
     }
 }

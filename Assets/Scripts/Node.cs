@@ -9,6 +9,7 @@ public class Node : MonoBehaviour
     public Vector3 positionOffset;
     public GameObject turret;
     public bool isUpgraded = false;
+    public TurretBlueprint turretBlueprint;
 
     private Renderer rendererComponent;
     private Color initialColor;
@@ -47,7 +48,6 @@ public class Node : MonoBehaviour
 
         if (turret)
         {
-            buildManager.SelectTurretToUpgrade();
             TurretPopup.instance.Toggle(this);
         }
 
@@ -76,6 +76,7 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(turretToBuild.prefab, GetBuildPosition(), Quaternion.identity);
         var buildEffect = Instantiate(buildManager.buildEffectPrefab, GetBuildPosition(), Quaternion.identity);
+        turretBlueprint = turretToBuild;
 
         Destroy(buildEffect, 5f);
 
@@ -84,9 +85,7 @@ public class Node : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        var turretToUpgrade = BuildManager.instance.turretToUpgrade;
-
-        if (PlayerStats.instance.money < turretToUpgrade.upgradeCost)
+        if (PlayerStats.instance.money < turretBlueprint.upgradeCost)
         {
             Debug.Log("Not enough money");
             return;
@@ -96,12 +95,12 @@ public class Node : MonoBehaviour
 
         Destroy(turret);
 
-        turret = Instantiate(turretToUpgrade.upgradePrefab, GetBuildPosition(), transform.rotation);
+        turret = Instantiate(turretBlueprint.upgradePrefab, GetBuildPosition(), transform.rotation);
 
         var upgradeEffect = Instantiate(buildManager.buildEffectPrefab, GetBuildPosition(), Quaternion.identity);
 
         Destroy(upgradeEffect, 5f);
 
-        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretToUpgrade.upgradeCost);
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretBlueprint.upgradeCost);
     }
 }
