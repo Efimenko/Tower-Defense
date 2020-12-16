@@ -103,4 +103,19 @@ public class Node : MonoBehaviour
 
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney - turretBlueprint.upgradeCost);
     }
+
+    public int GetSellCost()
+    {
+        if (isUpgraded) {
+            return (turretBlueprint.upgradeCost + turretBlueprint.cost) / 2;
+        }
+
+        return turretBlueprint.cost / 2;
+    }
+
+    public void SellTurret()
+    {
+        Destroy(turret);
+        PlayerStats.instance.SetMoney((currentMoney) => currentMoney + GetSellCost());
+    }
 }

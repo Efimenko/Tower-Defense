@@ -10,6 +10,7 @@ public class TurretPopup : MonoBehaviour
     public Text upgradeCost;
     public GameObject canvas;
     private Node openedOn;
+    public Text sellCost;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class TurretPopup : MonoBehaviour
     {
         openedOn = node;
         upgradeCost.text = openedOn.turretBlueprint.upgradeCost + "$";
+        sellCost.text = openedOn.GetSellCost() + "$";
 
         if (!openedOn.isUpgraded && !upgradeButton.interactable)
         {
@@ -57,6 +59,14 @@ public class TurretPopup : MonoBehaviour
         {
             upgradeCost.text = "Max";
             upgradeButton.interactable = false;
+            sellCost.text = openedOn.GetSellCost() + "$";
         }
+    }
+
+    public void OnSell()
+    {
+        openedOn.SellTurret();
+
+        Hide();
     }
 }
