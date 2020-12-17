@@ -8,6 +8,8 @@ public class BuildManager : MonoBehaviour
 
     public GameObject buildEffectPrefab;
 
+    public GameObject sellEffectPrefab;
+
     private TurretBlueprint _turretToBuild;
 
     public TurretBlueprint turretToBuild => _turretToBuild;

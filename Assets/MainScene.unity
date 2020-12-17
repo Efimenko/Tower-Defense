@@ -3126,6 +3126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildEffectPrefab: {fileID: 8577665500934325409, guid: 32635e55aeab8422a9eb358d3fe49578, type: 3}
+  sellEffectPrefab: {fileID: 3685724230094262414, guid: bea61779cf2eb40c5b08fec27ac8946f, type: 3}
 --- !u!114 &335575694
 MonoBehaviour:
   m_ObjectHideFlags: 0

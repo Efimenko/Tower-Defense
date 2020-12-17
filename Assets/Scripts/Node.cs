@@ -116,6 +116,9 @@ public class Node : MonoBehaviour
     public void SellTurret()
     {
         Destroy(turret);
+        var sellEffect = Instantiate(buildManager.sellEffectPrefab, GetBuildPosition(), Quaternion.identity);
+        Destroy(sellEffect, 5f);
+
         PlayerStats.instance.SetMoney((currentMoney) => currentMoney + GetSellCost());
     }
 }
