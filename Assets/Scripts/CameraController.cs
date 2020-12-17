@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private bool movable = true;
     public float edgeBorderThinkness = 10f;
     public float speed = 30f;
     public float scrollSpeed = 6f;
@@ -16,16 +15,6 @@ public class CameraController : MonoBehaviour
         if (GameManager.gameIsOver)
         {
             this.enabled = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            movable = !movable;
-        }
-
-        if (!movable)
-        {
-            return;
         }
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - edgeBorderThinkness)
